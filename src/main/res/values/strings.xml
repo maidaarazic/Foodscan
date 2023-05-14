@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Registration</string>
-
-    <string name="new_text">Already have an account?</string>
-    val message = getString(R.string.new_text)
-
-</resources>
-
