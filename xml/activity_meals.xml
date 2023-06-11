@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <TextView
+        android:gravity="center"
+        android:layout_width="410dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="-5dp"
+        android:text="Southern Blackberry Cobbler"
+        android:textSize="24sp"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:background="@drawable/radius"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardImage"
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="50dp">
+
+        <ImageView
+            android:src="@drawable/cobbler"
+            android:layout_width="280dp"
+            android:layout_height="210dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            ></ImageView>
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="80dp"
+            android:layout_gravity="center"
+            >
+
+            <LinearLayout
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:background="@drawable/radius"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="This southern-style Vegan Blackberry Cobbler recipe is simple and easy to make with only 7 ingredients for a deliciously healthy snack or dessert everyone will love!" />
+
+                <TextView
+                    android:id="@+id/moreText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Flour – Here, I used unbleached all-purpose flour. I’ve also tested this with spelt flour, which turned out great."
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
