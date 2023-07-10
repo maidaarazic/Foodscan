@@ -1,24 +1,27 @@
 package com.example.foodscan_app;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Button;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class scan extends AppCompatActivity {
 
+    Button btn_scan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
 
-        // Call the scanning method when the scan button is clicked
-        findViewById(R.id.btn_scan).setOnClickListener(v -> {
+        btn_scan = findViewById(R.id.btn_scan);
+        btn_scan.setOnClickListener(v -> {
             scanCode();
         });
     }
@@ -38,20 +41,10 @@ public class scan extends AppCompatActivity {
                 // Retrieve the scanned product information from the result
                 String scannedProductCode = result.getContents();
 
-                // Check the scanned product code and navigate to the corresponding activity
-                if (scannedProductCode.equals("8901088043953")) {
-                    // Navigate to Product1DetailsActivity
-                    Intent intent = new Intent(scan.this, product_scanned.class);
-                    startActivity(intent);
-                } else if (scannedProductCode.equals("8901088043953")) {
-                    // Navigate to Product2DetailsActivity
-                    Intent intent = new Intent(scan.this, product_scanned.class);
-                    startActivity(intent);
-                } else {
-                    // Navigate to DefaultDetailsActivity for unknown products
-                    Intent intent = new Intent(scan.this, product_scanned.class);
-                    startActivity(intent);
-                }
+                // Pass the scanned product code to the product details activity
+                Intent intent = new Intent(scan.this, product_scanned.class);
+                intent.putExtra("scannedProductCode", scannedProductCode);
+                startActivity(intent);
             } else {
                 // Handle the case when scanning is canceled or failed
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
